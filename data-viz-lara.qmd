@@ -15,9 +15,9 @@ library(dplyr)
 library(broom)
 library(forcats)
 library(GGally)
-#data <- read_csv('Dead by Daylight data.csv')
-#data
-#theme_set(theme_bw())
+data <- read.csv2('Data_pour_Clara.csv')
+data
+theme_set(theme_bw())
 ```
 
 ## 
