@@ -1,0 +1,54 @@
+---
+title: "Dead by Daylight Data Visualization"
+author: "Clara Duchossois"
+date: "Winter Semester 2023-2024"
+output: html_document
+---
+
+We first load all the needed libraries, as well as the original data file
+
+```{r}
+library(tidyverse)
+library(ggplot2)
+library(readr)
+library(dplyr)
+library(broom)
+library(forcats)
+library(GGally)
+#data <- read_csv('Dead by Daylight data.csv')
+#data
+#theme_set(theme_bw())
+```
+
+## 
+
+```{r}
+#ggplot() +
+  #geom_bar(aes(x = dead_by_daylight$`# Finished generators`), fill = "#CC0000") +
+  #labs(title = "Number of repaired generators per match", x = "Repaired generators", y = "Count") +
+  #guides(fill = 'none') 
+```
+
+```{r}
+#dead_by_daylight |> 
+#ggplot() +
+#geom_density(aes(x = dead_by_daylight$`# Finished generators`, fill = Season, alpha = 0.3)) +
+#facet_wrap(~factor(Season, c("February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December", "January"))) +
+#labs(title = "Density of the number of repaired generators per match per season", x = "Repaired generators", y ="Density") +
+#scale_alpha(guide = 'none') +
+#guides(fill = 'none') +
+#expand_limits(x = c(-2,7), y = c(0,1))
+
+```
+
+
+
+
+
+
+
+
+
+
+
+
