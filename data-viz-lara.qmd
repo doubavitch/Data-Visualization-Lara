@@ -3,6 +3,7 @@ title: "Dead by Daylight Data Visualization"
 author: "Clara Duchossois"
 date: "Winter Semester 2023-2024"
 output: html_document
+echo: false
 ---
 
 We first load all the needed libraries, as well as the original data file
@@ -16,37 +17,55 @@ library(broom)
 library(forcats)
 library(GGally)
 data <- read.csv2('Data_pour_Clara.csv')
-data
+#data
 theme_set(theme_bw())
 ```
 
-## 
-
 ```{r}
-#ggplot() +
-  #geom_bar(aes(x = dead_by_daylight$`# Finished generators`), fill = "#CC0000") +
-  #labs(title = "Number of repaired generators per match", x = "Repaired generators", y = "Count") +
-  #guides(fill = 'none') 
-```
+data_no_emp_zip_state <- select(data, -c(emp_title, zip_code, addr_state))
+#data_no_emp_zip_state
+#ggpairs(data_no_emp_zip_state)
 
-```{r}
-#dead_by_daylight |> 
-#ggplot() +
-#geom_density(aes(x = dead_by_daylight$`# Finished generators`, fill = Season, alpha = 0.3)) +
-#facet_wrap(~factor(Season, c("February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December", "January"))) +
-#labs(title = "Density of the number of repaired generators per match per season", x = "Repaired generators", y ="Density") +
-#scale_alpha(guide = 'none') +
-#guides(fill = 'none') +
-#expand_limits(x = c(-2,7), y = c(0,1))
 
+# emp_length n/a to NA
 ```
 
 
+## Density of the annual incomes
+```{r}
+density(pull(data, annual_inc))
 
+ggplot() +
+geom_density(aes(x = data$annual_inc, fill = "", alpha = 0.3), fill = "cyan3") +
+scale_x_continuous(trans='log10') +
+geom_vline(aes(xintercept = mean(data$annual_inc), colour = "mean"), linewidth = 1) +
+geom_vline(aes(xintercept = median(data$annual_inc), color = "median"), linewidth = 0.7) +
+scale_color_manual(name = "Statistics", values = c(mean = "red3", median = "navyblue")) +
+labs(title = "Density of the annual incomes", x = "Annual income", y ="Density", colour = "Mean") +
+scale_alpha(guide = 'none') +
+guides(fill = 'none') 
+#expand_limits(x = c(3000,9506881))
+```
 
+## Count of the different purposes
+```{r}
+data |> 
+  ggplot(aes(y = fct_infreq(purpose))) +
+  geom_bar(fill = 'cyan3') +
+  geom_text(stat = "count", aes(label = scales::comma(after_stat(count))), hjust = 'inward') +
+  labs(title = "Count of the top 2 different purposes", x = "Purpose", y = "Count") 
+```
 
+## Count of the Top 2 purposes
+```{r}
+data |> 
+  ggplot(aes(y = fct_lump_n(fct_infreq(purpose), n = 2))) +
+  geom_bar(fill = 'cyan3') +
+  geom_text(stat = "count", aes(label = scales::comma(after_stat(count))), hjust = 'inward') +
+  labs(title = "Count of the top 2 different purposes", x = "Purpose", y = "Count") 
 
-
+# stack other levels
+```
 
 
 
