@@ -53,7 +53,7 @@ data |>
   ggplot(aes(y = fct_infreq(purpose))) +
   geom_bar(fill = 'cyan3') +
   geom_text(stat = "count", aes(label = scales::comma(after_stat(count))), hjust = 'inward') +
-  labs(title = "Count of the top 2 different purposes", x = "Purpose", y = "Count") 
+  labs(title = "Count of the different purposes", x = "Purpose", y = "Count") 
 ```
 
 ## Count of the Top 2 purposes
@@ -66,6 +66,10 @@ data |>
 
 # stack other levels
 ```
+
+
+
+
 
 
 
