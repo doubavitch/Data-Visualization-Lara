@@ -6,9 +6,9 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="author" content="Clara Duchossois">
+<meta name="author" content="Lara Suys">
 
-<title>Dead by Daylight Data Visualization</title>
+<title>Data Visualization</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -46,7 +46,7 @@ ul.task-list li input[type="checkbox"] {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Dead by Daylight Data Visualization</h1>
+<h1 class="title">Data Visualization</h1>
 </div>
 
 
@@ -56,7 +56,7 @@ ul.task-list li input[type="checkbox"] {
     <div>
     <div class="quarto-title-meta-heading">Author</div>
     <div class="quarto-title-meta-contents">
-             <p>Clara Duchossois </p>
+             <p>Lara Suys </p>
           </div>
   </div>
     
@@ -99,15 +99,15 @@ Registered S3 method overwritten by 'GGally':
 Call:
     density.default(x = pull(data, annual_inc))
 
-Data: pull(data, annual_inc) (419919 obs.); Bandwidth 'bw' = 2294
+Data: pull(data, annual_inc) (419928 obs.); Bandwidth 'bw' = 2294
 
        x                 y            
- Min.   :  -3881   Min.   :0.000e+00  
- 1st Qu.:2373810   1st Qu.:0.000e+00  
- Median :4751500   Median :0.000e+00  
- Mean   :4751500   Mean   :3.404e-07  
- 3rd Qu.:7129190   3rd Qu.:1.700e-10  
- Max.   :9506881   Max.   :4.024e-05  </code></pre>
+ Min.   :  -5681   Min.   :0.000e+00  
+ 1st Qu.:2372460   1st Qu.:0.000e+00  
+ Median :4750600   Median :0.000e+00  
+ Mean   :4750600   Mean   :3.404e-07  
+ 3rd Qu.:7128740   3rd Qu.:1.700e-10  
+ Max.   :9506881   Max.   :4.001e-05  </code></pre>
 </div>
 <div class="cell-output-display">
 <p><img src="data-viz-lara_files/figure-html/unnamed-chunk-3-1.png" class="img-fluid" width="672"></p>
@@ -127,6 +127,53 @@ Data: pull(data, annual_inc) (419919 obs.); Bandwidth 'bw' = 2294
 <div class="cell">
 <div class="cell-output-display">
 <p><img src="data-viz-lara_files/figure-html/unnamed-chunk-5-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+</section>
+<section id="distribution-of-the-funded-amounts" class="level2">
+<h2 class="anchored" data-anchor-id="distribution-of-the-funded-amounts">Distribution of the funded amounts</h2>
+<div class="cell">
+<div class="cell-output cell-output-stdout">
+<pre><code>
+Call:
+    density.default(x = pull(data, funded_amnt))
+
+Data: pull(data, funded_amnt) (419928 obs.);    Bandwidth 'bw' = 578.9
+
+       x                 y            
+ Min.   : -736.8   Min.   :2.817e-08  
+ 1st Qu.: 8631.6   1st Qu.:1.252e-05  
+ Median :18000.0   Median :2.532e-05  
+ Mean   :18000.0   Mean   :2.666e-05  
+ 3rd Qu.:27368.4   3rd Qu.:4.089e-05  
+ Max.   :36736.8   Max.   :6.931e-05  </code></pre>
+</div>
+<div class="cell-output-display">
+<p><img src="data-viz-lara_files/figure-html/unnamed-chunk-6-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+</section>
+<section id="scatter-plot-of-the-borrowers-income-against-the-funded-amount" class="level2">
+<h2 class="anchored" data-anchor-id="scatter-plot-of-the-borrowers-income-against-the-funded-amount">Scatter plot of the borrower’s income against the funded amount</h2>
+<div class="cell">
+<div class="cell-output-display">
+<p><img src="data-viz-lara_files/figure-html/unnamed-chunk-7-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+</section>
+<section id="count-of-the-different-loan-statuses" class="level2">
+<h2 class="anchored" data-anchor-id="count-of-the-different-loan-statuses">Count of the different loan statuses</h2>
+<div class="cell">
+<div class="cell-output-display">
+<p><img src="data-viz-lara_files/figure-html/unnamed-chunk-8-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+</section>
+<section id="scatter-plot-of-the-borrowers-debt-to-income-ratio-against-the-funded-amount" class="level2">
+<h2 class="anchored" data-anchor-id="scatter-plot-of-the-borrowers-debt-to-income-ratio-against-the-funded-amount">Scatter plot of the borrower’s debt-to-income ratio against the funded amount</h2>
+<div class="cell">
+<div class="cell-output-display">
+<p><img src="data-viz-lara_files/figure-html/unnamed-chunk-9-1.png" class="img-fluid" width="672"></p>
 </div>
 </div>
 </section>

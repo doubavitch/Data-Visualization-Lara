@@ -1,6 +1,6 @@
 ---
-title: "Dead by Daylight Data Visualization"
-author: "Clara Duchossois"
+title: "Data Visualization"
+author: "Lara Suys"
 date: "Winter Semester 2023-2024"
 output: html_document
 echo: false
@@ -22,7 +22,7 @@ theme_set(theme_bw())
 ```
 
 ```{r}
-data_no_emp_zip_state <- select(data, -c(emp_title, zip_code, addr_state))
+#data_no_emp_zip_state <- select(data, -c(emp_title, zip_code, addr_state))
 #data_no_emp_zip_state
 #ggpairs(data_no_emp_zip_state)
 
@@ -102,8 +102,23 @@ data |>
   labs(title = "Count of the different loan statuses", x = "Count", y = "Loan status") 
 ```
 
+## Scatter plot of the borrower's debt-to-income ratio against the funded amount
+```{r}
+ggplot(data, aes(y = funded_amnt, x = dti)) +
+  geom_point(alpha = 0.1, colour = "lightgray") +
+  geom_smooth(method = "lm", formula = 'y ~ x', se = FALSE, colour = "red3") +
+  #scale_x_continuous(trans = 'log10') +
+  labs(y = "Funded amount", x = "Debt-to-income",
+      title = "Funded amount of the borrower as a function of their debt-to-income ratio ")
+```
 
-
+```{r}
+#data |> 
+#ggplot() +
+#geom_bar(aes(x='', y = addr_state), stat="identity", width=1) +
+  #coord_polar("y", start=0) +
+  #theme_void()
+```
 
 
 
