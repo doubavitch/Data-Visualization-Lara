@@ -17,7 +17,7 @@ library(broom)
 library(forcats)
 library(GGally)
 data <- read.csv2('Data_pour_Clara.csv')
-#data
+data
 theme_set(theme_bw())
 ```
 
@@ -41,7 +41,7 @@ scale_x_continuous(trans='log10') +
 geom_vline(aes(xintercept = mean(data$annual_inc), colour = "mean"), linewidth = 1) +
 geom_vline(aes(xintercept = median(data$annual_inc), color = "median"), linewidth = 0.7) +
 scale_color_manual(name = "Statistics", values = c(mean = "red3", median = "navyblue")) +
-labs(title = "Density of the annual incomes", x = "Annual income", y ="Density", colour = "Mean") +
+labs(title = "Density of the annual incomes", x = "Annual income (in log scale)", y ="Density", colour = "Mean") +
 scale_alpha(guide = 'none') +
 guides(fill = 'none') 
 #expand_limits(x = c(3000,9506881))
@@ -67,6 +67,21 @@ data |>
 # stack other levels
 ```
 
+
+## Distribution of the funded amounts
+```{r}
+density(pull(data, funded_amnt))
+
+ggplot() +
+geom_density(aes(x = data$funded_amnt, fill = "", alpha = 0.3), fill = "cyan3") +
+expand_limits(x = c(-740,37000)) +
+geom_vline(aes(xintercept = mean(data$funded_amnt), colour = "mean"), linewidth = 1) +
+geom_vline(aes(xintercept = median(data$funded_amnt), color = "median"), linewidth = 0.7) +
+scale_color_manual(name = "Statistics", values = c(mean = "red3", median = "navyblue")) +
+labs(title = "Distribution of the funded amounts", x = "Funded amounts", y ="Density", colour = "Mean") +
+scale_alpha(guide = 'none') +
+guides(fill = 'none')
+```
 
 
 
