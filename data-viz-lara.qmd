@@ -83,6 +83,23 @@ scale_alpha(guide = 'none') +
 guides(fill = 'none')
 ```
 
+## Scatter plot of the borrower's income against the funded amount
+```{r}
+ggplot(data, aes(x = funded_amnt, y = annual_inc)) +
+  geom_point(alpha = 0.1, colour = "lightgray") +
+  geom_smooth(method = "lm", formula = 'y ~ x', se = FALSE, colour = "red3") +
+  scale_y_continuous(trans = 'log10') +
+  labs(x = "Funded amount", y = "Annual income (in log scale)",
+      title = "Annual income of the borrower as a function of their funded amount")
+```
+
+
+
+
+
+
+
+
 
 
 
