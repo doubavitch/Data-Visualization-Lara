@@ -16,7 +16,7 @@ library(dplyr)
 library(broom)
 library(forcats)
 library(GGally)
-data <- read.csv2('Data_pour_Clara.csv')
+data <- read.csv2('Clara.csv')
 #data
 theme_set(theme_bw())
 ```
