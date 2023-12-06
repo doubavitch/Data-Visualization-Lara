@@ -17,7 +17,7 @@ library(broom)
 library(forcats)
 library(GGally)
 data <- read.csv2('Data_pour_Clara.csv')
-data
+#data
 theme_set(theme_bw())
 ```
 
@@ -53,7 +53,7 @@ data |>
   ggplot(aes(y = fct_infreq(purpose))) +
   geom_bar(fill = 'cyan3') +
   geom_text(stat = "count", aes(label = scales::comma(after_stat(count))), hjust = 'inward') +
-  labs(title = "Count of the different purposes", x = "Purpose", y = "Count") 
+  labs(title = "Count of the different purposes", x = "Count", y = "Purpose") 
 ```
 
 ## Count of the Top 2 purposes
@@ -62,7 +62,7 @@ data |>
   ggplot(aes(y = fct_lump_n(fct_infreq(purpose), n = 2))) +
   geom_bar(fill = 'cyan3') +
   geom_text(stat = "count", aes(label = scales::comma(after_stat(count))), hjust = 'inward') +
-  labs(title = "Count of the top 2 different purposes", x = "Purpose", y = "Count") 
+  labs(title = "Count of the top 2 different purposes", x = "Count", y = "Purpose") 
 
 # stack other levels
 ```
@@ -93,6 +93,14 @@ ggplot(data, aes(x = funded_amnt, y = annual_inc)) +
       title = "Annual income of the borrower as a function of their funded amount")
 ```
 
+## Count of the different loan statuses
+```{r}
+data |> 
+  ggplot(aes(y = fct_infreq(loan_status))) +
+  geom_bar(fill = 'cyan3') +
+  geom_text(stat = "count", aes(label = scales::comma(after_stat(count))), hjust = 'inward') +
+  labs(title = "Count of the different loan statuses", x = "Count", y = "Loan status") 
+```
 
 
 
